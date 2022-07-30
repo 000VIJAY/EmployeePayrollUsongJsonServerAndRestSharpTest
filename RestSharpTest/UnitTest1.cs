@@ -53,5 +53,11 @@ namespace RestSharpTest
             Assert.AreEqual("Umesh Kumar", responseEmployee.Name);
             Assert.AreEqual("60000",responseEmployee.Salary);
         }
+        public void DeteleEmployee()
+        {
+            RestRequest request = new RestRequest("/Employee/3", Method.Delete);
+            RestResponse response = client.Execute(request);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
+        }
     }
 }
